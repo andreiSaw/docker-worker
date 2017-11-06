@@ -8,7 +8,8 @@ RUN mkdir /opt/docker-worker
 RUN virtualenv /opt/docker-worker/venv
 RUN /opt/docker-worker/venv/bin/pip install git+https://github.com/andreiSaw/pydisneyland
 RUN /opt/docker-worker/venv/bin/pip install git+https://github.com/sashabaranov/easywebdav
+RUN /opt/docker-worker/venv/bin/pip install git+https://github.com/andreiSaw/hep-data-backends
 RUN /opt/docker-worker/venv/bin/pip install git+https://github.com/andreiSaw/docker-worker
 
 ADD configs /opt/docker-worker/configs
-ADD docker-worker /opt/docker-worker/bin/docker-worker
+ADD docker-worker /opt/docker-worker/dockerworker
