@@ -1,0 +1,1 @@
+{"required_outputs": {"output_uri": "local:/tmp/test_output/$JOB_ID", "file_contents": [{"to_variable": "a", "file": "file.txt"}]}, "input": ["local:/tmp/file.txt"], "container": {"min_memoryMB": 512, "name": "busybox", "cmd": "/bin/sh -l -c 'cat /input/file.txt > /output/file.txt'", "max_memoryMB": 1024, "workdir": "", "cpu_needed": 1}}
