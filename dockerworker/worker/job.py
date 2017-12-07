@@ -2,7 +2,8 @@ import socket
 import time
 import traceback
 
-from disneylandClient import Job, new_client
+import json
+from disneylandClient import Job
 from lockfile import LockFile
 
 from . import harbor
@@ -29,12 +30,14 @@ def do_docker_job(job, stub):
         if job.status != Job.COMPLETED:
             job.status = Job.FAILED
 
-        if config.DEBUG:
-            logger.debug({
-                "hostname": socket.gethostname(),
-                "exception": str(e),
-                "traceback": traceback.format_exc()
-            })
+        debug_info = {
+            "hostname": socket.gethostname(),
+            "exception": str(e),
+            "traceback": traceback.format_exc()
+        }
+
+        job.metadata = json.dumps(debug_info)
+        stub.ModifyJob(job)
 
         logger.error(str(e))
         logger.error(traceback.format_exc())
