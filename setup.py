@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='skygrid-docker-worker',
-    version='0.5.2',
+    version='0.5.3',
     url='https://github.com/skygrid/docker-worker',
     author='Alexander Baranov',
     author_email='sashab1@yandex-team.ru',
